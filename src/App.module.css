@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 100%;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.title {
+  padding: 25px 0;
+}
+
+.subtitle {
+  padding: 15px 0 10px 0;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td,
+th {
+  border: 1px solid #333;
+  text-align: left;
+  padding: 8px;
+}
+
+.table tbody tr:first-child {
+  background-color: #222;
+}
