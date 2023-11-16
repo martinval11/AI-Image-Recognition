@@ -74,7 +74,7 @@ function App() {
         })}
 
         {files.length === 0 ? (
-          <p>Please select a file to recognize it</p>
+          <p className={styles.emptyFile}>Please select a file to recognize it</p>
         ) : predictions.length === 0 ? (
           <div className={styles.loaderContainer}>
             <span className={styles.loader}></span>
