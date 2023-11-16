@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import styles from "./App.module.css";
+import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import styles from './App.module.css';
+import {Button} from './components/ui/button';
 
 type Prediction = {
   className: string;
@@ -20,23 +21,26 @@ function App() {
 
   const ImageFileInput = ({ onFilesChange }: Props) => {
     return (
-      <input
-        type="file"
-        accept="image/*"
-        multiple
-        onChange={(e) => {
-          const fileList = e.target.files;
-          if (fileList) {
-            const files = [...fileList];
-            onFilesChange(files);
-          }
-        }}
-      />
+      <label className={styles.customFileUpload}>
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) => {
+            const fileList = e.target.files;
+            if (fileList) {
+              const files = [...fileList];
+              onFilesChange(files);
+            }
+          }}
+        />
+        Upload Image
+      </label>
     );
   };
 
   useEffect(() => {
-    const img = document.querySelector("img");
+    const img = document.querySelector('img');
 
     if (img !== null) {
       // Load the model.
@@ -72,7 +76,10 @@ function App() {
         {files.length === 0 ? (
           <p>Please select a file to recognize it</p>
         ) : predictions.length === 0 ? (
-          <p>Recognizing...</p>
+          <div className={styles.loaderContainer}>
+            <span className={styles.loader}></span>
+            <p>Recognizing...</p>
+          </div>
         ) : (
           <>
             <h2 className={styles.subtitle}>Results</h2>

@@ -3,8 +3,8 @@ Recognize objects in images using TensorFlow
 
 ## Setup
 ```bash
-$ git clone https://github.com/martinval11/ai-recognize-images
-$ cd ai-recognize-images
+$ git clone https://github.com/martinval11/AI-Image-Recognition
+$ cd AI-Image-Recognition
 $ bun install
 ```
 
