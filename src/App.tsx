@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './App.module.css';
-import {Button} from './components/ui/button';
 
 type Prediction = {
   className: string;
@@ -48,7 +47,7 @@ function App() {
         // Classify the image.
         model.classify(img).then((predictions: Prediction[]) => {
           setPredictions(predictions);
-        });
+        });q
       });
     }
   }, [files]);
