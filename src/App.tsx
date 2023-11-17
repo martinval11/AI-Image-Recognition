@@ -47,7 +47,7 @@ function App() {
         // Classify the image.
         model.classify(img).then((predictions: Prediction[]) => {
           setPredictions(predictions);
-        });q
+        });
       });
     }
   }, [files]);
