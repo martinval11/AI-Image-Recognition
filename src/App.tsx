@@ -1,3 +1,6 @@
+// TODO: Mobile net is in the index.html file. This will be changed soon...
+declare const mobilenet: any;
+
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './App.module.css';
@@ -13,7 +16,7 @@ type Props = {
 };
 
 function App() {
-  const [predictions, setPredictions] = useState([]);
+  const [predictions, setPredictions] = useState<Prediction[]>([]);
   const [files, setFiles] = useState<File[]>([]);
 
   const urls = files.map((file) => URL.createObjectURL(file));
@@ -45,9 +48,7 @@ function App() {
       // Load the model.
       mobilenet?.load().then((model: any) => {
         // Classify the image.
-        model.classify(img).then((predictions: Prediction[]) => {
-          setPredictions(predictions);
-        });
+        model.classify(img).then((predictions: Prediction[]) => setPredictions(predictions));
       });
     }
   }, [files]);
